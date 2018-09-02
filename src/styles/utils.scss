@@ -1,0 +1,19 @@
+@import '~open-color/open-color';
+@import '~include-media/dist/include-media';
+
+@mixin border {
+    border: 1px solid black;
+}
+
+$background_gray:#363842;
+$littleweak_gray:#5F5A62;
+$verystrong_gray:#1F1F1F;
+$light_green: #99EE64;
+$pretty_red: #B30000;
+
+@mixin input {
+    height: 55px;
+    color: white;
+    font-size: 1.7rem;
+    
+}
