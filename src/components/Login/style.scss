@@ -20,10 +20,12 @@
                 padding-left: 20px;
                 border: 0;
                 margin-bottom: 1px;
+                caret-color: deeppink;
             }
             button {
                 border: 0;
                 width: 493px;
+                cursor: pointer;
             }
             .SignButton {
                 @include input;
@@ -46,6 +48,7 @@
             margin-top: 50px;
             display: flex;
             flex-direction: column;
+            width: 80%;
             span {
                 margin-bottom: 50px;
             }

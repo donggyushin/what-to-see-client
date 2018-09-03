@@ -1,0 +1,24 @@
+@import "utils";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    height: 257px;
+    @include radius;
+    background-color: $littleweak_gray;
+    padding-left: 15px;
+    padding-top: 35px;
+    margin-left: 15px;
+    margin-top: 10px;
+    span {
+        cursor: pointer;
+    }
+    .close {
+        position: absolute;
+        top:320px;
+        left: 80px;
+        color: $verystrong_gray;
+        cursor: pointer;
+    }
+}

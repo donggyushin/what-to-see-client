@@ -5,23 +5,42 @@ import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
-const Login = () => (
+const Login = ({ username, password, handleInput, clickSignIn }) => (
   <div className={cx("container")}>
-    <Left />
+    <Left
+      username={username}
+      password={password}
+      handleInput={handleInput}
+      clickSignIn={clickSignIn}
+    />
     <Right />
   </div>
 );
 
-const Left = () => (
+const Left = ({ username, password, handleInput, clickSignIn }) => (
   <div className={cx("LeftContainer")}>
     <div className={cx("box")}>
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <button className={cx("SignButton")}>Sign In</button>
+      <input
+        type="text"
+        placeholder="username"
+        name="username"
+        value={username}
+        onChange={handleInput}
+      />
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+        value={password}
+        onChange={handleInput}
+      />
+      <button className={cx("SignButton")} onClick={clickSignIn}>
+        Sign In
+      </button>
 
       <button className={cx("SignButton")}>Sign Up</button>
 
-      <Link to="/api/auth/facebook" className={cx("FBbutton")}>
+      <Link to="/" className={cx("FBbutton")}>
         <img
           src={require("../../media/facebooklogin.png")}
           alt="facebook login"

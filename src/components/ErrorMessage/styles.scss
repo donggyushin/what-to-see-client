@@ -1,0 +1,40 @@
+@import "utils";
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .box {
+        width: 739px;
+        height: 285px;
+        background-color: white;
+        @include radius;
+        color: black;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .image {
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .Error {
+            font-size: 2rem;
+            font-weight: 900;
+            color: $littleweak_gray;
+        }
+        .message {
+
+        }
+        button {
+            margin-top: 40px;
+            @include redButton;
+        }
+    }
+}
