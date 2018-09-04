@@ -48,7 +48,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  apiCheckLogin: () => dispatch(userActions.apiCheckLogin())
+  apiCheckLogin: () => dispatch(userActions.apiCheckLogin()),
+  logout: () => dispatch(userActions.apiLogout())
 });
 
 export default connect(

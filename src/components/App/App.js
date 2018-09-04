@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./style.scss";
 import classNames from "classnames/bind";
-import { Route } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import LoginContainer from "components/Login/LoginContainer";
 import NavigationVarContainer from "components/NavigationVar/NavigationVarContainer";
 import NavigationListContainer from "components/NavigationList/NavigationListContainer";
 import ErrorMessageContainer from "components/ErrorMessage/ErrorMessageContainer";
+import SignUpContainer from "components/SignUp/SignUpContainer";
 
 const cx = classNames.bind(styles);
 
@@ -32,9 +33,12 @@ const App = ({
 );
 
 const PublicComponent = () => (
-  <div>
-    <LoginContainer />
-  </div>
+  <Router>
+    <div>
+      <Route exact path="/" component={LoginContainer} />
+      <Route path="/signup" component={SignUpContainer} />
+    </div>
+  </Router>
 );
 
 const PrivateComponent = ({

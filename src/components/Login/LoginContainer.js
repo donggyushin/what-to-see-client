@@ -33,6 +33,11 @@ class LoginContainer extends Component {
     apiLogin(username, password);
   };
 
+  _clickFacebookLoginButton = () => {
+    const { apiFacebookLogin } = this.props;
+    apiFacebookLogin();
+  };
+
   render() {
     const { username, password } = this.state;
     return (
@@ -41,6 +46,7 @@ class LoginContainer extends Component {
         password={password}
         handleInput={this._handleInput}
         clickSignIn={this._clickSignIn}
+        clickFacebookLoginButton={this._clickFacebookLoginButton}
       />
     );
   }
@@ -50,7 +56,8 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
   apiLogin: (username, password) =>
-    dispatch(userActions.apiLogin(username, password))
+    dispatch(userActions.apiLogin(username, password)),
+  apiFacebookLogin: () => dispatch(userActions.apiFacebookLogin())
 });
 
 export default connect(

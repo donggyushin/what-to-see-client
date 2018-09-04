@@ -1,0 +1,42 @@
+@import "utils";
+
+.container {
+    @include border;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .box {
+        margin-left: 140px;
+        display: flex;
+        flex-direction: column;
+        width: $sign_width;
+        input {
+            @include input;
+            padding-left: 20px;
+            background-color: $verystrong_gray;
+            color: white;
+            caret-color: deeppink;
+            border: 0;
+            margin-bottom: 1px;
+        }
+
+        button {
+            @include input;
+            border: 0;
+            cursor: pointer;
+            background-color: $pretty_red;
+            margin-top: 1px;
+        }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        margin-left: 140px;
+        width: 523px;
+
+        img {
+            margin-top: 40px;
+        }
+    }
+}

@@ -1,84 +1,51 @@
 import React from "react";
-import styles from "./style.scss";
+import styles from "./styles.scss";
 import classNames from "classnames/bind";
-import { Link } from "react-router-dom";
-import FacebookLogin from "react-facebook-login";
 
 const cx = classNames.bind(styles);
 
-const responseFacebook = response => {
-  console.log(response);
-};
-
-const Login = ({
+const SignUp = ({
   username,
   password,
+  displayName,
   handleInput,
-  clickSignIn,
-  clickFacebookLoginButton
+  clickSignUpButton,
+  history
 }) => (
   <div className={cx("container")}>
-    <Left
-      username={username}
-      password={password}
-      handleInput={handleInput}
-      clickSignIn={clickSignIn}
-      clickFacebookLoginButton={clickFacebookLoginButton}
-    />
-    <Right />
-  </div>
-);
-
-const Left = ({
-  username,
-  password,
-  handleInput,
-  clickSignIn,
-  clickFacebookLoginButton
-}) => (
-  <div className={cx("LeftContainer")}>
     <div className={cx("box")}>
       <input
-        type="text"
-        placeholder="username"
         name="username"
         value={username}
+        placeholder="username"
+        type="text"
         onChange={handleInput}
       />
       <input
-        type="password"
-        placeholder="password"
         name="password"
         value={password}
+        placeholder="password"
+        type="password"
         onChange={handleInput}
       />
-      <button className={cx("SignButton")} onClick={clickSignIn}>
+      <input
+        name="displayName"
+        value={displayName}
+        placeholder="display name"
+        onChange={handleInput}
+        type="text"
+      />
+      <button onClick={clickSignUpButton}>Sign Up</button>
+
+      <button
+        onClick={() => {
+          history.push("/");
+        }}
+      >
         Sign In
       </button>
-      <Link to="/signup">
-        <button className={cx("SignButton")}>Sign Up</button>
-      </Link>
-
-      {/* <Link to="/" className={cx("FBbutton")}>
-        <img
-          src={require("../../media/facebooklogin.png")}
-          alt="facebook login"
-        />
-      </Link> */}
-
-      <FacebookLogin
-        appId="222404618630234"
-        autoLoad={true}
-        //onClick={clickFacebookLoginButton}
-        //callback={responseFacebook}
-      />
     </div>
-  </div>
-);
-
-const Right = () => (
-  <div className={cx("RightContainer")}>
-    <div className={cx("box")}>
+    <div className={cx("right")}>
       <h1>Welcome To What To See!</h1>
       <p>Please Sign In to join Amazing Movie introduction Web Service</p>
       <h3>What can i do in What To See web service?</h3>
@@ -101,4 +68,4 @@ const Right = () => (
   </div>
 );
 
-export default Login;
+export default SignUp;

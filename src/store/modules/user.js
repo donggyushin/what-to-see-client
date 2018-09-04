@@ -34,6 +34,40 @@ export const checkLogin = isLoggedIn => ({
 
 //api action creators
 
+export const apiSignUp = (username, password, displayName) => {
+  console.log("username, password, displayname");
+  console.log(username + password + displayName);
+  return dispatch => {
+    axios
+      .post("/api/auth/", { username, password, displayName })
+      .then(response => {
+        if (response.data.status === 400) {
+          dispatch(openModal(response.data.error));
+        } else {
+          dispatch(login());
+        }
+      });
+  };
+};
+
+//fail
+export const apiFacebookLogin = () => {
+  return dispatch => {
+    axios
+      .get("/api/auth/facebook")
+      .then(response => {
+        console.log("here!!!!!!!!!!!!!!");
+        console.log(response);
+        if (response.data.status === 404) {
+          dispatch(openModal(response.data.error));
+        } else {
+          dispatch(login());
+        }
+      })
+      .catch(err => console.log(err));
+  };
+};
+
 export const apiLogout = () => {
   return dispatch => {
     axios
