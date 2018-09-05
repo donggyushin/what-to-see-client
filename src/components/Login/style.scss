@@ -31,6 +31,10 @@
                 @include input;
                 background-color: $pretty_red;
                 margin-bottom: 2px;
+                transition: background-color 0.2s;
+                &:hover{
+                    background-color: $weak_red;
+                }
             }
             .FBbutton {
                 margin-top: 50px;

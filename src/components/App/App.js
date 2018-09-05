@@ -7,6 +7,7 @@ import NavigationVarContainer from "components/NavigationVar/NavigationVarContai
 import NavigationListContainer from "components/NavigationList/NavigationListContainer";
 import ErrorMessageContainer from "components/ErrorMessage/ErrorMessageContainer";
 import SignUpContainer from "components/SignUp/SignUpContainer";
+import MovieListContainer from "components/MovieList/MovieListContainer";
 
 const cx = classNames.bind(styles);
 
@@ -46,12 +47,15 @@ const PrivateComponent = ({
   clickListIcon,
   clickCloseSpan
 }) => (
-  <div className={cx("private_container")}>
-    <NavigationVarContainer clickListIcon={clickListIcon} />
-    {navigationVisiable && (
-      <NavigationListContainer clickCloseSpan={clickCloseSpan} />
-    )}
-  </div>
+  <Router>
+    <div className={cx("private_container")}>
+      <NavigationVarContainer clickListIcon={clickListIcon} />
+      {navigationVisiable && (
+        <NavigationListContainer clickCloseSpan={clickCloseSpan} />
+      )}
+      <MovieListContainer />
+    </div>
+  </Router>
 );
 
 export default App;

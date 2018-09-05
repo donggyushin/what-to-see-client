@@ -6,7 +6,9 @@ const cx = classNames.bind(styles);
 
 const NavigationList = ({ clickCloseSpan, clickLogoutSpan }) => (
   <div className={cx("container")}>
-    <span onClick={clickLogoutSpan}>logout</span>
+    <span onClick={clickLogoutSpan} className={cx("word")}>
+      logout
+    </span>
 
     <span className={cx("close")} onClick={clickCloseSpan}>
       close

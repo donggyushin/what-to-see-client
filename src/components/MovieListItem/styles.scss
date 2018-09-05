@@ -1,0 +1,32 @@
+@import "utils";
+
+.container {
+    width: 328px;
+    height: 608px;
+    background-color: $littleweak_gray;
+    @include radius;
+    margin-bottom: 250px;
+    -webkit-box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+    -moz-box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+    box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+    cursor: pointer;
+
+    img {
+        border-radius: 7px;
+        box-shadow: 5px 5px 20px 5px rgba($color: #999999, $alpha: 0.4)
+    }
+
+    .desc {
+        padding: 13px;
+        display: flex;
+        flex-direction: column;
+        .runtime {
+            margin-bottom: 30px;
+        }
+
+        .genres {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
