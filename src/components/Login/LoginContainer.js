@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Login from "components/Login/Login";
 import * as userActions from "store/modules/user";
+import * as movieActions from "store/modules/movies";
 
 class LoginContainer extends Component {
   state = {
@@ -38,6 +39,11 @@ class LoginContainer extends Component {
     apiFacebookLogin();
   };
 
+  componentDidMount() {
+    const { removeMovieList } = this.props;
+    removeMovieList();
+  }
+
   render() {
     const { username, password } = this.state;
     return (
@@ -57,7 +63,8 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({
   apiLogin: (username, password) =>
     dispatch(userActions.apiLogin(username, password)),
-  apiFacebookLogin: () => dispatch(userActions.apiFacebookLogin())
+  apiFacebookLogin: () => dispatch(userActions.apiFacebookLogin()),
+  removeMovieList: () => dispatch(movieActions.removeMovieList())
 });
 
 export default connect(

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import App from "components/App/App";
 import * as userActions from "store/modules/user";
+import * as movieActions from "store/modules/movies";
 
 class AppContainer extends Component {
   state = {
@@ -28,11 +29,12 @@ class AppContainer extends Component {
   }
 
   render() {
-    const { isLoggedIn, errorModalVisiable } = this.props;
+    const { isLoggedIn, errorModalVisiable, movieDetailVisiable } = this.props;
     const { navigationVisiable } = this.state;
     return (
       <App
         isLoggedIn={isLoggedIn}
+        movieDetailVisiable={movieDetailVisiable}
         navigationVisiable={navigationVisiable}
         clickListIcon={this._clickListIcon}
         clickCloseSpan={this._clickCloseSpan}
@@ -44,7 +46,8 @@ class AppContainer extends Component {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.user.isLoggedIn,
-  errorModalVisiable: state.user.errorModalVisiable
+  errorModalVisiable: state.user.errorModalVisiable,
+  movieDetailVisiable: state.movies.movie_detail_visiable
 });
 
 const mapDispatchToProps = dispatch => ({

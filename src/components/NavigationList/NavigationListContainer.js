@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import NavigationList from "components/NavigationList/NavigationList";
 import * as userActions from "store/modules/user";
+import * as movieActions from "store/modules/movies";
 
 class NavigationListContainer extends Component {
   _clickLogoutSpan = () => {

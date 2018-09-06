@@ -36,6 +36,19 @@ $sign_width:471px;
     cursor: pointer;
 }
 
+@mixin greenButton {
+    width: 200px;
+    height: 55px;
+    @include radius();
+    background-color: $light_green;
+    color: white;
+    border: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    box-shadow: 5px 5px 20px 5px rgba($color: #999999, $alpha: 0.4);
+    cursor: pointer;
+}
+
 @mixin border {
     border: 1px solid black;
 }

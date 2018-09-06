@@ -8,6 +8,7 @@ import NavigationListContainer from "components/NavigationList/NavigationListCon
 import ErrorMessageContainer from "components/ErrorMessage/ErrorMessageContainer";
 import SignUpContainer from "components/SignUp/SignUpContainer";
 import MovieListContainer from "components/MovieList/MovieListContainer";
+import MovieDetailContainer from "components/MovieDetail/MovieDetailContainer";
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +17,8 @@ const App = ({
   navigationVisiable,
   clickListIcon,
   clickCloseSpan,
-  errorModalVisiable
+  errorModalVisiable,
+  movieDetailVisiable
 }) => (
   <div>
     {errorModalVisiable && <ErrorMessageContainer />}
@@ -26,6 +28,7 @@ const App = ({
         navigationVisiable={navigationVisiable}
         clickListIcon={clickListIcon}
         clickCloseSpan={clickCloseSpan}
+        movieDetailVisiable={movieDetailVisiable}
       />
     ) : (
       <PublicComponent />
@@ -45,7 +48,8 @@ const PublicComponent = () => (
 const PrivateComponent = ({
   navigationVisiable,
   clickListIcon,
-  clickCloseSpan
+  clickCloseSpan,
+  movieDetailVisiable
 }) => (
   <Router>
     <div className={cx("private_container")}>
@@ -54,6 +58,7 @@ const PrivateComponent = ({
         <NavigationListContainer clickCloseSpan={clickCloseSpan} />
       )}
       <MovieListContainer />
+      {movieDetailVisiable && <MovieDetailContainer />}
     </div>
   </Router>
 );

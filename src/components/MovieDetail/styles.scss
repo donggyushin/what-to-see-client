@@ -1,0 +1,66 @@
+@import "utils";
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    .box {
+        overflow-y: scroll;
+        width: 80%;
+        height: 732px;
+        @include radius;
+        background-color: $background_gray;
+        margin-top: 35px;
+        margin-left: 100px;
+        -webkit-box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+    -moz-box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+    box-shadow: 10px 10px 71px 10px rgba(250,250,250,0.7);
+        .header{
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            span {
+                cursor: pointer;
+            }
+        }
+        .body{
+            .MovieDetailContainer{
+                display: flex;
+                margin-bottom: 110px;
+                .left{
+                    img {
+                        box-shadow: 5px 5px 20px 5px rgba($color: #999999, $alpha: 0.4)
+                    }
+                }
+                .right{
+                    width: 578px;
+                    margin-left: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    .genres {
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                    }
+                    .desc{
+                        margin-top: 80px;
+                        margin-bottom: 120px;
+                        span {
+                            font-size: 1.3rem;
+                            font-weight: 800;
+                        }
+                    }
+                    .buttonContainer{
+                        display: flex;
+                        justify-content: center;
+                        button {
+                            @include greenButton;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+

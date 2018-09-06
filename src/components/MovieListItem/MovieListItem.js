@@ -14,9 +14,9 @@ const MovieListItem = ({
   genres,
   summary,
   medium_cover_image,
-  data_uploaded
+  clickMovieListItem
 }) => (
-  <div className={cx("container")}>
+  <div className={cx("container")} onClick={() => clickMovieListItem(id)}>
     <img className={cx("poster")} src={medium_cover_image} alt="poster" />
     <div className={cx("desc")}>
       <span className={cx("title")}>{title_long ? title_long : "?"}</span>
