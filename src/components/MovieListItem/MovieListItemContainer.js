@@ -5,9 +5,14 @@ import * as movieActions from "store/modules/movies";
 
 class MovieListItemContainer extends Component {
   _clickMovieListItem = id => {
-    const { turnOnDetailView, apiGetMovieDetail } = this.props;
+    const {
+      turnOnDetailView,
+      apiGetMovieDetail,
+      apiGetMovieSuggestions
+    } = this.props;
     turnOnDetailView();
     apiGetMovieDetail(id);
+    apiGetMovieSuggestions(id);
   };
 
   render() {
@@ -24,7 +29,9 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
   turnOnDetailView: () => dispatch(movieActions.turnOnDetailView()),
-  apiGetMovieDetail: id => dispatch(movieActions.apiGetMovieDetail(id))
+  apiGetMovieDetail: id => dispatch(movieActions.apiGetMovieDetail(id)),
+  apiGetMovieSuggestions: id =>
+    dispatch(movieActions.apiGetMovieSuggestions(id))
 });
 
 export default connect(

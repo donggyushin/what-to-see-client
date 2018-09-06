@@ -9,9 +9,14 @@ class MovieDetailContainer extends Component {
   };
 
   _clickCloseSpan = () => {
-    const { turnOffDetailView, removeMovieDetail } = this.props;
+    const {
+      turnOffDetailView,
+      removeMovieDetail,
+      removeMovieSuggestions
+    } = this.props;
     turnOffDetailView();
     removeMovieDetail();
+    removeMovieSuggestions();
   };
 
   componentWillUpdate(nextProps) {
@@ -42,7 +47,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   turnOffDetailView: () => dispatch(movieActions.turnOffDetailView()),
-  removeMovieDetail: () => dispatch(movieActions.removeMovieDetail())
+  removeMovieDetail: () => dispatch(movieActions.removeMovieDetail()),
+  removeMovieSuggestions: () => dispatch(movieActions.removeMovieSuggestions())
 });
 
 export default connect(

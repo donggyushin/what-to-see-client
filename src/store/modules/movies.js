@@ -7,6 +7,9 @@ const movie_api_url =
 const movie_detail_api_url =
   "https://yts.am/api/v2/movie_details.json?movie_id=";
 
+const movie_suggestions_api_url =
+  "https://yts.am/api/v2/movie_suggestions.json?movie_id=";
+
 //actions
 const SET_MOVIES = "movies/SET_MOVIES";
 const SET_MOVIE = "movies/SET_MOVIE";
@@ -14,8 +17,19 @@ const TURN_ON_DETAIL_VIEW = "movies/TURN_ON_DETAIL_VIEW";
 const TURN_OFF_DETAIL_VIEW = "movies/TURN_OFF_DETAIL_VIEW";
 const REMOVE_MOVIE_DETAIL = "movies/REMOVE_MOVIE_DETAIL";
 const REMOVE_MOVIE_LIST = "movies/REMOVE_MOVIE_LIST";
+const SET_MOVIE_SUGGESTIONS = "movies/SET_MOVIE_SUGGESTIONS";
+const REMOVE_MOVIE_SUGGESTIONS = "movies/REMOVE_MOVIE_SUGGESTIONS";
 
 //action creators
+
+export const removeMovieSuggestions = () => ({
+  type: REMOVE_MOVIE_SUGGESTIONS
+});
+
+export const setMovieSuggestions = suggestions => ({
+  type: SET_MOVIE_SUGGESTIONS,
+  suggestions
+});
 
 export const removeMovieList = () => ({
   type: REMOVE_MOVIE_LIST
@@ -44,6 +58,15 @@ export const setMovies = movies => ({
 });
 
 //api action creators
+export const apiGetMovieSuggestions = movie_id => {
+  return dispatch => {
+    axios
+      .get(movie_suggestions_api_url + movie_id)
+      .then(response => response.data.data.movies)
+      .then(suggestions => dispatch(setMovieSuggestions(suggestions)))
+      .catch(err => console.log(err));
+  };
+};
 
 export const apiGetMovieDetail = movie_id => {
   return dispatch => {
@@ -71,7 +94,8 @@ export const apiGetMovies = () => {
 const initialState = {
   movies: null,
   movie_detail: null,
-  movie_detail_visiable: false
+  movie_detail_visiable: false,
+  movie_suggestions: null
 };
 
 //reducer
@@ -90,12 +114,31 @@ export default function reducer(state = initialState, action) {
       return applyRemoveMovieDetail(state, action);
     case REMOVE_MOVIE_LIST:
       return applyRemoveMovieList(state, action);
+    case SET_MOVIE_SUGGESTIONS:
+      return applySetMovieSuggestions(state, action);
+    case REMOVE_MOVIE_SUGGESTIONS:
+      return applyRemoveMovieSuggestions(state, action);
     default:
       return state;
   }
 }
 
 //reducer actions
+const applyRemoveMovieSuggestions = (state, action) => {
+  return {
+    ...state,
+    movie_suggestions: null
+  };
+};
+
+const applySetMovieSuggestions = (state, action) => {
+  const { suggestions } = action;
+  return {
+    ...state,
+    movie_suggestions: suggestions
+  };
+};
+
 const applyRemoveMovieList = (state, action) => {
   return {
     ...state,

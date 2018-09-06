@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.scss";
 import classNames from "classnames/bind";
 import Loading from "components/Loading/Loading";
+import MovieSuggestionsContainer from "components/MovieSuggestions/MovieSuggestionsContainer";
 
 const cx = classNames.bind(styles);
 
@@ -13,6 +14,7 @@ const MovieDetail = ({ loading, clickCloseSpan, movie }) => (
       </div>
       <div className={cx("body")}>
         {loading ? <Loading /> : <MovieDetailBody movie={movie} />}
+        <MovieSuggestionsContainer />
       </div>
     </div>
   </div>
