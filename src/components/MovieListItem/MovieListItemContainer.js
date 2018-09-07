@@ -8,11 +8,13 @@ class MovieListItemContainer extends Component {
     const {
       turnOnDetailView,
       apiGetMovieDetail,
-      apiGetMovieSuggestions
+      apiGetMovieSuggestions,
+      apiGetComments
     } = this.props;
     turnOnDetailView();
     apiGetMovieDetail(id);
     apiGetMovieSuggestions(id);
+    apiGetComments(id);
   };
 
   render() {
@@ -31,7 +33,8 @@ const mapDispatchToProps = dispatch => ({
   turnOnDetailView: () => dispatch(movieActions.turnOnDetailView()),
   apiGetMovieDetail: id => dispatch(movieActions.apiGetMovieDetail(id)),
   apiGetMovieSuggestions: id =>
-    dispatch(movieActions.apiGetMovieSuggestions(id))
+    dispatch(movieActions.apiGetMovieSuggestions(id)),
+  apiGetComments: movieId => dispatch(movieActions.apiGetComments(movieId))
 });
 
 export default connect(

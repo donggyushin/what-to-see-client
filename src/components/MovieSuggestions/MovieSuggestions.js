@@ -40,7 +40,14 @@ const MovieSuggestionsItem = ({
   titleVisiable
 }) => (
   <div className={cx("Item")}>
-    <img alt="poster" src={medium_cover_image} />
+    <img
+      alt="poster"
+      src={
+        medium_cover_image
+          ? medium_cover_image
+          : require("../../media/error.png")
+      }
+    />
     <span className={cx("title")}>{title}</span>
   </div>
 );

@@ -66,12 +66,12 @@ const Left = ({
         />
       </Link> */}
 
-      <FacebookLogin
+      {/* <FacebookLogin
         appId="222404618630234"
         autoLoad={true}
-        //onClick={clickFacebookLoginButton}
-        //callback={responseFacebook}
-      />
+        onClick={clickFacebookLoginButton}
+        callback={responseFacebook}
+      /> */}
     </div>
   </div>
 );
