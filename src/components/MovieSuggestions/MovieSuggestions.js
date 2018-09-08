@@ -5,7 +5,12 @@ import Loading from "components/Loading/Loading";
 
 const cx = classNames.bind(styles);
 
-const MovieSuggestions = ({ loading, movieSuggestions, titleVisiable }) => (
+const MovieSuggestions = ({
+  loading,
+  movieSuggestions,
+  titleVisiable,
+  clickSuggestionMovie
+}) => (
   <div className={cx("container")}>
     <h3>Suggestions</h3>
     <hr />
@@ -15,12 +20,17 @@ const MovieSuggestions = ({ loading, movieSuggestions, titleVisiable }) => (
       <MovieSuggestionsItemContainer
         suggestions={movieSuggestions}
         titleVisiable={titleVisiable}
+        clickSuggestionMovie={clickSuggestionMovie}
       />
     )}
   </div>
 );
 
-const MovieSuggestionsItemContainer = ({ suggestions, titleVisiable }) => (
+const MovieSuggestionsItemContainer = ({
+  suggestions,
+  titleVisiable,
+  clickSuggestionMovie
+}) => (
   <div className={cx("ItemContainer")}>
     {suggestions &&
       suggestions.map(suggestion => (
@@ -28,6 +38,7 @@ const MovieSuggestionsItemContainer = ({ suggestions, titleVisiable }) => (
           key={suggestion.id}
           {...suggestion}
           titleVisiable={titleVisiable}
+          clickSuggestionMovie={clickSuggestionMovie}
         />
       ))}
   </div>
@@ -37,19 +48,22 @@ const MovieSuggestionsItem = ({
   id,
   title,
   medium_cover_image,
-  titleVisiable
-}) => (
-  <div className={cx("Item")}>
-    <img
-      alt="poster"
-      src={
-        medium_cover_image
-          ? medium_cover_image
-          : require("../../media/error.png")
-      }
-    />
-    <span className={cx("title")}>{title}</span>
-  </div>
-);
+  small_cover_image,
+  background_image,
+  titleVisiable,
+  clickSuggestionMovie
+}) => {
+  console.log("medium_cover_image: " + medium_cover_image);
+  return (
+    <div className={cx("Item")}>
+      <img
+        alt="poster"
+        src={medium_cover_image}
+        onClick={() => clickSuggestionMovie(id)}
+      />
+      <span className={cx("title")}>{title}</span>
+    </div>
+  );
+};
 
 export default MovieSuggestions;

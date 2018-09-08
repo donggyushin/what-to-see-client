@@ -21,6 +21,13 @@ class MovieDetailContainer extends Component {
     removeComment();
   };
 
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      loading: true
+    });
+  }
+
   componentWillUpdate(nextProps) {
     if (!this.props.movieDetail && nextProps.movieDetail) {
       this.setState({

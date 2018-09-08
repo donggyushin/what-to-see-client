@@ -57,9 +57,23 @@
                 margin-bottom: 50px;
             }
 
-            img {
+            .torrent {
                 width: 360px;
                 height: 186px;
+            }
+
+            .main{
+                height: 348px;
+                width: auto
+            }
+
+            .detail {
+                height: 348px;
+                width: auto;
+            }
+            .suggestions {
+                height: 348px;
+                width: auto;
             }
         }
     }

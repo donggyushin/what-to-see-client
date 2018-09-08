@@ -82,7 +82,24 @@ const Right = () => (
       <h1>Welcome To What To See!</h1>
       <p>Please Sign In to join Amazing Movie introduction Web Service</p>
       <h3>What can i do in What To See web service?</h3>
-      <p>
+
+      <img
+        className={cx("main")}
+        alt="main"
+        src={require("../../media/1.png")}
+      />
+      <img
+        className={cx("detail")}
+        alt="detail"
+        src={require("../../media/4.png")}
+      />
+      <img
+        className={cx("suggestions")}
+        alt="suggestions"
+        src={require("../../media/5.png")}
+      />
+
+      {/* <p>
         At first, you can check what movies are the most hot in torrent, at
         first page, unfortunately, you can see only 50 movies in order by
         population with download count, but if you click some movie, then you
@@ -92,10 +109,14 @@ const Right = () => (
         lot of contents, so don't be hesitate, just let's join! if you mind to
         sign up to our website, then you can join with your facebook account
         also!
-      </p>
+      </p> */}
       <span>And we also are preparing to make search var!</span>
       <a href="https://www.utorrent.com/intl/ko/">
-        <img src={require("../../media/torrent.jpeg")} alt="torrent" />
+        <img
+          className={cx("torrent")}
+          src={require("../../media/torrent.jpeg")}
+          alt="torrent"
+        />
       </a>
     </div>
   </div>

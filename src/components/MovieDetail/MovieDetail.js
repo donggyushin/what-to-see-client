@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import Loading from "components/Loading/Loading";
 import MovieSuggestionsContainer from "components/MovieSuggestions/MovieSuggestionsContainer";
 import CommentsListContainer from "components/CommentsList/CommentsListContainer";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -25,14 +26,7 @@ const MovieDetail = ({ loading, clickCloseSpan, movie }) => (
 const MovieDetailBody = ({ movie }) => (
   <div className={cx("MovieDetailContainer")}>
     <div className={cx("left")}>
-      <img
-        alt="movie_poster"
-        src={
-          movie.large_cover_image
-            ? movie.large_cover_image
-            : "../../media/error.png"
-        }
-      />
+      <img alt="movie_poster" src={movie.large_cover_image} />
     </div>
     <div className={cx("right")}>
       <h2 className={cx("title")}>{movie.title_long}</h2>
@@ -51,9 +45,11 @@ const MovieDetailBody = ({ movie }) => (
         {movie.description_full}
       </p>
       <div className={cx("buttonContainer")}>
-        <button role="img" className={cx("down_button")}>
-          download ⬇️
-        </button>
+        <a href={movie.url} target="_black">
+          <button role="img" className={cx("down_button")}>
+            download ⬇️
+          </button>
+        </a>
       </div>
     </div>
   </div>

@@ -22,8 +22,14 @@ const SET_MOVIE_SUGGESTIONS = "movies/SET_MOVIE_SUGGESTIONS";
 const REMOVE_MOVIE_SUGGESTIONS = "movies/REMOVE_MOVIE_SUGGESTIONS";
 const SET_COMMENTS = "movies/SET_COMMENTS";
 const REMOVE_COMMENTS = "movies/REMOVE_COMMENTS";
+const DELETE_COMMENT = "movies/DELETE_COMMENT";
 
 //action creators
+
+export const deleteComment = id => ({
+  type: DELETE_COMMENT,
+  id
+});
 
 export const removeComment = () => ({
   type: REMOVE_COMMENTS
@@ -70,6 +76,22 @@ export const setMovies = movies => ({
 });
 
 //api action creators
+
+export const apiDeleteComment = commentId => {
+  return dispatch => {
+    axios
+      .delete(`/api/comment/${commentId}`)
+      .then(response => response.data)
+      .then(data => {
+        if (!data.ok) {
+          dispatch(userActions.openModal(data.error));
+        } else {
+          dispatch(deleteComment(commentId));
+        }
+      })
+      .catch(err => console.log(err));
+  };
+};
 
 export const apiInputComment = (message, movieId) => {
   return dispatch => {
@@ -164,12 +186,23 @@ export default function reducer(state = initialState, action) {
       return applySetComments(state, action);
     case REMOVE_COMMENTS:
       return applyRemoveComments(state, action);
+    case DELETE_COMMENT:
+      return applyDeleteComment(state, action);
     default:
       return state;
   }
 }
 
 //reducer actions
+
+const applyDeleteComment = (state, action) => {
+  const { id } = action;
+  const updatedComments = state.comments.filter(comment => comment.id !== id);
+  return {
+    ...state,
+    comments: updatedComments
+  };
+};
 
 const applyRemoveComments = (state, action) => {
   return {

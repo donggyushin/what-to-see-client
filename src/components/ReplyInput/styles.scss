@@ -1,0 +1,15 @@
+@import "utils";
+
+.container {
+    input {
+        width: $little_input_width;
+        height: $little_input_height;
+        background-color: $verystrong_gray;
+        caret-color: deeppink;
+        padding-left: 15px;
+        border:0;
+        margin-top: 7px;
+        @include radius;
+        margin-bottom: 16px;
+    }
+}

@@ -5,13 +5,32 @@
     padding-left: 25px;
     padding-bottom: 15px;
     width: 816px;
-    align-items: center;
-    .username {
+    flex-direction: column;
+    div {
+        display: flex;
+        align-items: center;
+        .username {
         margin-right: 12px;
         font-size: $username_fontsize;
     }
 
     .message{
-
+        width: 528px;
     }
+
+    .reply {
+        font-size: $little_fontsize;
+        color: white;
+        cursor: pointer;
+        font-weight: 900;
+        display: none;
+    }
+    &:hover{
+        .reply{
+            display: inline;
+        }
+    }
+    }
+    
+
 }
