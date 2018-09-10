@@ -54,7 +54,7 @@ export const apiSignUp = (username, password, displayName) => {
 export const apiFacebookLogin = () => {
   return dispatch => {
     axios
-      .get("/api/auth/facebook")
+      .post("/api/auth/facebook")
       .then(response => {
         console.log("here!!!!!!!!!!!!!!");
         console.log(response);
