@@ -1,0 +1,23 @@
+@import "utils";
+
+.container {
+    margin-left: 25px;
+    margin-bottom: 110px;
+    padding: 10px;
+
+    select{
+        width: 160px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .star{
+        margin-left: 32px;
+    }
+
+    button {
+        @include greenButton;
+        margin-left: 100px;
+    }
+
+}

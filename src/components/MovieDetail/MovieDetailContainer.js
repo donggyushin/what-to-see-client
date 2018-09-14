@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import MovieDetail from "components/MovieDetail/MovieDetail";
 import * as movieActions from "store/modules/movies";
+import * as starActions from "store/modules/star";
 
 class MovieDetailContainer extends Component {
   state = {
@@ -13,12 +14,14 @@ class MovieDetailContainer extends Component {
       turnOffDetailView,
       removeMovieDetail,
       removeMovieSuggestions,
-      removeComment
+      removeComment,
+      removeStar
     } = this.props;
     turnOffDetailView();
     removeMovieDetail();
     removeMovieSuggestions();
     removeComment();
+    removeStar();
   };
 
   componentDidMount() {
@@ -58,7 +61,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   turnOffDetailView: () => dispatch(movieActions.turnOffDetailView()),
   removeMovieDetail: () => dispatch(movieActions.removeMovieDetail()),
   removeMovieSuggestions: () => dispatch(movieActions.removeMovieSuggestions()),
-  removeComment: () => dispatch(movieActions.removeComment())
+  removeComment: () => dispatch(movieActions.removeComment()),
+  removeStar: () => dispatch(starActions.removeStar())
 });
 
 export default connect(

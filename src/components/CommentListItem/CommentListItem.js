@@ -16,7 +16,7 @@ const CommentListItem = ({
 }) => (
   <div className={cx("container")}>
     <div>
-      <span className={cx("username")}>{displayName}</span>
+      <span className={cx("username")}>{username}</span>
       <span className={cx("message")}>{message}</span>
       {/* <span className={cx("reply")} onClick={() => clickReplySpan(id)}>
         Reply

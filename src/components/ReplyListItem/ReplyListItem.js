@@ -4,10 +4,10 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const ReplyListItem = ({ id, displayName, message }) => {
+const ReplyListItem = ({ id, username, message }) => {
   return (
     <div className={cx("container")}>
-      <span className={cx("username")}>{displayName}</span>
+      <span className={cx("username")}>{username}</span>
       <span className={cx("message")}>{message}</span>
     </div>
   );
